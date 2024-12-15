@@ -1,8 +1,8 @@
-/home/oussama Pipex
+# Pipex
 
 Pipex is a C programming project that replicates a fundamental UNIX mechanism: pipes. It handles piping between commands, file input/output, and error management. The goal of this project is to deepen your understanding of system-level programming and how processes interact using pipes and file descriptors.
 
- Project Overview
+## Project Overview
 
 The program takes four arguments:
 
@@ -19,7 +19,7 @@ The program should behave like the following shell command:
 < file1 cmd1 | cmd2 > file2
 ```
 
- Example Usage
+### Example Usage
 
 ```bash
 $ ./pipex infile "ls -l" "wc -l" outfile
@@ -43,7 +43,7 @@ This should behave like:
 $ < infile grep a1 | wc -w > outfile
 ```
 
- Bonus Features
+### Bonus Features
 
 - **Handling Multiple Pipes:**
 
@@ -101,13 +101,13 @@ $ cmd << LIMITER | cmd1 >> file
 
 **Note:** The bonus features will **only** be evaluated if the mandatory part is correctly implemented.
 
- Requirements
+## Requirements
 
 - **Languages**: C
 - **Libraries**: Libft (if applicable), standard C libraries
 - **Functions**: open, close, read, write, malloc, free, perror, strerror, access, dup, dup2, execve, exit, fork, pipe, unlink, wait, waitpid, and `ft_printf` or its equivalent (which you wrote yourself).
 
- Compilation
+## Compilation
 
 To compile the project, simply run the `Makefile` in the project directory:
 
@@ -117,7 +117,7 @@ make
 
 This will compile the `pipex` program using the flags `-Wall`, `-Wextra`, and `-Werror`.
 
- Makefile Rules
+### Makefile Rules
 
 - **all**: Compiles the program.
 - **clean**: Removes object files.
@@ -125,16 +125,16 @@ This will compile the `pipex` program using the flags `-Wall`, `-Wextra`, and `-
 - **re**: Recompiles the project.
 - **bonus**: (If applicable) Includes any additional functions or features for the bonus part.
 
- Error Handling
+## Error Handling
 
 Your program must handle errors gracefully. If any errors occur (such as file not found, invalid arguments, etc.), it should print a descriptive error message and exit cleanly. The program should also avoid memory leaks and handle all heap-allocated memory appropriately.
 
- Submission
+## Submission
 
 - The project must be submitted in a Git repository.
 - The submitted repository should include all source files (`*.c`), headers (`*.h`), and a `Makefile`.
 - If you've completed the bonus features, they must be in separate files, and your `Makefile` should include a `bonus` rule.
 
- License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
