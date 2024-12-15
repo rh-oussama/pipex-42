@@ -87,20 +87,6 @@ This should behave like:
 $ cmd << LIMITER | cmd1 >> file
 ```
 
-**Explanation:**
-- A **here-doc** is a way to pass input directly to a command in the pipeline without needing an external file.
-- Instead of reading from `file1`, the program will use input that is **terminated** by the string `LIMITER`.
-- `cmd` will read input up to the point where `LIMITER` is encountered, and this input is passed as input to `cmd`.
-- After that, the second command (`cmd1`) will receive the output of `cmd`, and write it to `file`.
-
-**Steps to Implement:**
-- If the first argument is `"here_doc"`, you'll need to handle reading input until you encounter `LIMITER`.
-- This input will be passed to the first command in the pipeline instead of reading from `file1`.
-- The `LIMITER` string should be used to identify the end of the input.
-- This will likely involve using `pipe` and `fork`, and writing the collected here-doc data into the pipe.
-
-**Note:** The bonus features will **only** be evaluated if the mandatory part is correctly implemented.
-
 ## Requirements
 
 - **Languages**: C
@@ -116,25 +102,3 @@ make
 ```
 
 This will compile the `pipex` program using the flags `-Wall`, `-Wextra`, and `-Werror`.
-
-### Makefile Rules
-
-- **all**: Compiles the program.
-- **clean**: Removes object files.
-- **fclean**: Removes object files and the compiled program.
-- **re**: Recompiles the project.
-- **bonus**: (If applicable) Includes any additional functions or features for the bonus part.
-
-## Error Handling
-
-Your program must handle errors gracefully. If any errors occur (such as file not found, invalid arguments, etc.), it should print a descriptive error message and exit cleanly. The program should also avoid memory leaks and handle all heap-allocated memory appropriately.
-
-## Submission
-
-- The project must be submitted in a Git repository.
-- The submitted repository should include all source files (`*.c`), headers (`*.h`), and a `Makefile`.
-- If you've completed the bonus features, they must be in separate files, and your `Makefile` should include a `bonus` rule.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
